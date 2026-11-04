@@ -39,3 +39,4 @@ Visit `http://localhost:8000` in your browser.
 
 ---
 © 2026 HARSHACOOLCARE. All Rights Reserved.
+
