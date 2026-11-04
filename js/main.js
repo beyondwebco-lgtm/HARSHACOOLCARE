@@ -260,5 +260,26 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (e.key === 'ArrowRight') nextGalleryItem();
     else if (e.key === 'ArrowLeft') prevGalleryItem();
   });
+
+  // 9. Gallery Filter Tabs Controller
+  const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+  if (filterButtons.length > 0) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filterVal = btn.getAttribute('data-filter');
+
+        galleryCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category') || 'all';
+          if (filterVal === 'all' || cardCat.includes(filterVal)) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+  }
 });
 

@@ -1170,6 +1170,43 @@ ul {
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.gallery-img-wrapper img.pos-top {
+  object-position: top center;
+}
+
+.gallery-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.gallery-filter-btn {
+  background: #ffffff;
+  color: var(--text-dark);
+  border: 1.5px solid var(--border-color);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gallery-filter-btn:hover,
+.gallery-filter-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+.gallery-card.hide {
+  display: none !important;
+}
+
 .gallery-card:hover .gallery-img-wrapper img {
   transform: scale(1.08);
 }
