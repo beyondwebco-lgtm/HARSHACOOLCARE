@@ -728,7 +728,7 @@
       <!-- Gallery Category Filter Tabs -->
       <div class="gallery-filters" role="tablist" aria-label="Gallery Filters">
         <button class="gallery-filter-btn active" data-filter="all">All Work</button>
-        <button class="gallery-filter-btn" data-filter="ac-fitting">❄️ Split &amp; Window AC Fitting (4)</button>
+        <button class="gallery-filter-btn" data-filter="ac-fitting">❄️ Split &amp; Window AC Fitting</button>
         <button class="gallery-filter-btn" data-filter="refrigerator">🧊 Refrigerators</button>
         <button class="gallery-filter-btn" data-filter="washing">🧺 Washing Machines</button>
         <button class="gallery-filter-btn" data-filter="purifier">💧 Water Purifier (RO)</button>
@@ -739,75 +739,53 @@
       <!-- Responsive Gallery Grid (3 cols desktop, 2 cols tablet, 1 col mobile) -->
       <div class="gallery-grid">
         
-        <!-- AC Fitting Photo 1: Shop & Service Center -->
-        <div class="gallery-card" data-category="ac-fitting" data-index="0">
-          <div class="gallery-img-wrapper">
-            <img src="images/ac-fitting-shop.jpg" class="pos-top" alt="HARSHA COOL CARE Store &amp; AC Fitting Center in Khammam" loading="lazy" width="400" height="260">
-            <div class="gallery-hover-overlay">
+        <!-- Photo 1: Split & Window AC Fitting – Shop Front (Interactive One-by-One / Scrolling Slider) -->
+        <div class="gallery-card gallery-card-slider" id="acFittingCard" data-category="ac-fitting">
+          <div class="gallery-img-wrapper gallery-slider-wrapper">
+            <!-- Slide Track (4 Real AC Photos) -->
+            <div class="gallery-slides-track" id="acSliderTrack">
+              <div class="gallery-slide active" data-src="images/ac-fitting-shop.jpg" data-caption="HARSHA COOL CARE Khammam store front with official 7794080383 board &amp; outdoor unit stock.">
+                <img src="images/ac-fitting-shop.jpg" class="pos-top" alt="HARSHA COOL CARE Store &amp; AC Fitting Center in Khammam" loading="lazy">
+              </div>
+              <div class="gallery-slide" data-src="images/ac-fitting-workshop.jpg" data-caption="Split &amp; Window AC workshop: Voltas, Carrier, Lloyd &amp; Onida outdoor unit testing &amp; piping overhaul.">
+                <img src="images/ac-fitting-workshop.jpg" alt="AC Servicing and Outdoor Unit Workshop in Khammam" loading="lazy">
+              </div>
+              <div class="gallery-slide" data-src="images/ac-fitting-stock.jpg" data-caption="Warehouse stock: Tested split and window AC inventory ready for doorstep installation &amp; exchange.">
+                <img src="images/ac-fitting-stock.jpg" alt="AC Units Stock and Inventory at Harsha Cool Care Khammam" loading="lazy">
+              </div>
+              <div class="gallery-slide" data-src="images/ac-fitting-storefront.jpg" data-caption="Storefront display: Certified technicians, vacuum testing station &amp; AC mounting setup.">
+                <img src="images/ac-fitting-storefront.jpg" class="pos-top" alt="AC Repair and Service Display at Harsha Cool Care" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Slide Arrows (One-by-One browsing) -->
+            <button class="slider-nav-btn slider-prev" id="acSliderPrev" aria-label="Previous AC Photo">&#10094;</button>
+            <button class="slider-nav-btn slider-next" id="acSliderNext" aria-label="Next AC Photo">&#10095;</button>
+
+            <!-- Slide Counter Badge -->
+            <span class="slider-counter" id="acSliderCounter">1 / 4 Photos</span>
+
+            <!-- Hover View Overlay (opens lightbox on currently active slide) -->
+            <div class="gallery-hover-overlay" id="acSliderOverlay">
               <span class="gallery-view-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                 View Larger
               </span>
             </div>
           </div>
+
+          <!-- Thumbnail Dot Switcher Bar -->
+          <div class="slider-dots" id="acSliderDots">
+            <button class="slider-dot active" data-index="0" aria-label="Photo 1: Store Front"></button>
+            <button class="slider-dot" data-index="1" aria-label="Photo 2: Workshop Units"></button>
+            <button class="slider-dot" data-index="2" aria-label="Photo 3: Stock Inventory"></button>
+            <button class="slider-dot" data-index="3" aria-label="Photo 4: Display"></button>
+          </div>
+
           <div class="gallery-info">
             <span class="gallery-label-pill">❄️ AC Installation &amp; Repairing</span>
             <h3 class="gallery-title">Split &amp; Window AC Fitting – Shop Front</h3>
-            <p class="gallery-subtext">HARSHA COOL CARE Khammam store, service center &amp; outdoor unit inventory.</p>
-          </div>
-        </div>
-
-        <!-- AC Fitting Photo 2: AC Workshop & Servicing -->
-        <div class="gallery-card" data-category="ac-fitting" data-index="1">
-          <div class="gallery-img-wrapper">
-            <img src="images/ac-fitting-workshop.jpg" alt="AC Servicing and Outdoor Unit Workshop in Khammam" loading="lazy" width="400" height="260">
-            <div class="gallery-hover-overlay">
-              <span class="gallery-view-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                View Larger
-              </span>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <span class="gallery-label-pill">❄️ AC Installation &amp; Repairing</span>
-            <h3 class="gallery-title">Split &amp; Window AC Workshop</h3>
-            <p class="gallery-subtext">Voltas, Carrier, Lloyd &amp; Onida outdoor unit testing, gas charging &amp; repair.</p>
-          </div>
-        </div>
-
-        <!-- AC Fitting Photo 3: Stock Inventory -->
-        <div class="gallery-card" data-category="ac-fitting" data-index="2">
-          <div class="gallery-img-wrapper">
-            <img src="images/ac-fitting-stock.jpg" alt="AC Units Stock and Inventory at Harsha Cool Care Khammam" loading="lazy" width="400" height="260">
-            <div class="gallery-hover-overlay">
-              <span class="gallery-view-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                View Larger
-              </span>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <span class="gallery-label-pill">❄️ AC Installation &amp; Repairing</span>
-            <h3 class="gallery-title">Split &amp; Window AC Stock &amp; Units</h3>
-            <p class="gallery-subtext">Verified split and window AC stock ready for doorstep installation &amp; exchange.</p>
-          </div>
-        </div>
-
-        <!-- AC Fitting Photo 4: Storefront & Testing Station -->
-        <div class="gallery-card" data-category="ac-fitting" data-index="3">
-          <div class="gallery-img-wrapper">
-            <img src="images/ac-fitting-storefront.jpg" class="pos-top" alt="AC Repair and Service Display at Harsha Cool Care" loading="lazy" width="400" height="260">
-            <div class="gallery-hover-overlay">
-              <span class="gallery-view-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                View Larger
-              </span>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <span class="gallery-label-pill">❄️ AC Installation &amp; Repairing</span>
-            <h3 class="gallery-title">Split &amp; Window AC Testing &amp; Fitting</h3>
-            <p class="gallery-subtext">Precision vacuuming, leak diagnosis, and professional AC mounting setup.</p>
+            <p class="gallery-subtext" id="acSliderSubtext">HARSHA COOL CARE Khammam store front with official 7794080383 board &amp; outdoor unit stock.</p>
           </div>
         </div>
 

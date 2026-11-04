@@ -170,8 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // 8. Gallery Lightbox Controller
-  const galleryCards = document.querySelectorAll('.gallery-card');
+  // 8. Gallery Lightbox Controller & In-Card Slider
   const lightbox = document.getElementById('galleryLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxTitle = document.getElementById('lightboxTitle');
@@ -184,10 +183,50 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentGalleryIndex = 0;
   const galleryItems = [];
 
-  galleryCards.forEach((card, index) => {
+  // Register AC Slider items first (all 4 photos)
+  const acSlides = document.querySelectorAll('#acSliderTrack .gallery-slide');
+  const acSliderCard = document.getElementById('acFittingCard');
+  let acCurrentIndex = 0;
+
+  if (acSlides.length > 0) {
+    acSlides.forEach((slide, sIdx) => {
+      const img = slide.querySelector('img');
+      const caption = slide.getAttribute('data-caption') || 'HARSHA COOL CARE Split & Window AC Fitting';
+      galleryItems.push({
+        src: img ? img.getAttribute('src') : '',
+        alt: img ? img.getAttribute('alt') : '',
+        title: `Split & Window AC Fitting (${sIdx + 1}/4)`,
+        category: '❄️ AC Installation & Repairing'
+      });
+    });
+
+    if (acSliderCard) {
+      acSliderCard.addEventListener('click', (e) => {
+        // Only open lightbox if not clicking slider nav buttons or dots
+        if (!e.target.closest('.slider-nav-btn') && !e.target.closest('.slider-dot')) {
+          openLightbox(acCurrentIndex);
+        }
+      });
+
+      acSliderCard.setAttribute('tabindex', '0');
+      acSliderCard.setAttribute('role', 'button');
+      acSliderCard.setAttribute('aria-label', 'View Split & Window AC Fitting photos in lightbox');
+      acSliderCard.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(acCurrentIndex);
+        }
+      });
+    }
+  }
+
+  // Register all other standard gallery cards
+  const standardCards = document.querySelectorAll('.gallery-card:not(.gallery-card-slider)');
+  standardCards.forEach((card) => {
     const imgElem = card.querySelector('.gallery-img-wrapper img');
     const titleElem = card.querySelector('.gallery-title');
     const catElem = card.querySelector('.gallery-label-pill');
+    const itemIndex = galleryItems.length;
 
     galleryItems.push({
       src: imgElem ? imgElem.getAttribute('src') : '',
@@ -197,20 +236,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     card.addEventListener('click', () => {
-      openLightbox(index);
+      openLightbox(itemIndex);
     });
 
-    // Keyboard support for accessibility
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.setAttribute('aria-label', `View ${titleElem ? titleElem.textContent.trim() : 'photo'} in lightbox`);
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openLightbox(index);
+        openLightbox(itemIndex);
       }
     });
   });
+
+  // In-Card Slider Navigation Controls (Arrows, Dots, Counter, Swipe)
+  const acPrev = document.getElementById('acSliderPrev');
+  const acNext = document.getElementById('acSliderNext');
+  const acCounter = document.getElementById('acSliderCounter');
+  const acDots = document.querySelectorAll('#acSliderDots .slider-dot');
+  const acSubtext = document.getElementById('acSliderSubtext');
+
+  function showAcSlide(index) {
+    if (!acSlides || acSlides.length === 0) return;
+    if (index >= acSlides.length) index = 0;
+    if (index < 0) index = acSlides.length - 1;
+    acCurrentIndex = index;
+
+    acSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === acCurrentIndex);
+    });
+
+    acDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === acCurrentIndex);
+    });
+
+    if (acCounter) {
+      acCounter.textContent = `${acCurrentIndex + 1} / ${acSlides.length} Photos`;
+    }
+
+    if (acSubtext && acSlides[acCurrentIndex]) {
+      const cap = acSlides[acCurrentIndex].getAttribute('data-caption');
+      if (cap) acSubtext.textContent = cap;
+    }
+  }
+
+  if (acNext) {
+    acNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showAcSlide(acCurrentIndex + 1);
+    });
+  }
+
+  if (acPrev) {
+    acPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showAcSlide(acCurrentIndex - 1);
+    });
+  }
+
+  acDots.forEach((dot, i) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showAcSlide(i);
+    });
+  });
+
+  // Touch Swipe for mobile one-by-one scrolling
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (acSliderCard) {
+    acSliderCard.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    acSliderCard.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 40) {
+        showAcSlide(acCurrentIndex + 1);
+      } else if (touchEndX - touchStartX > 40) {
+        showAcSlide(acCurrentIndex - 1);
+      }
+    }, { passive: true });
+  }
 
   function openLightbox(index) {
     if (!lightbox || !galleryItems[index]) return;
