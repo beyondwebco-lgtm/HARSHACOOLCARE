@@ -8,6 +8,7 @@ Official responsive static website for **HARSHACOOLCARE**, Khammam's trusted 24-
 * 🧺 **Washing Machine Repairing** (Top Load, Front Load, Semi-Automatic, Motor & Drum Fixes)
 * 💧 **Water Purifier (RO) Service** (Filter Candle, RO Membrane Replacement, Leakage & TDS Adjustment)
 * ♨️ **Geyser Repairing & Services** (Heating Coil Replacement, Thermostat & Descaling)
+* 💨 **Kitchen Chimney Services** (Deep Degreasing, Oil & Baffle Filter Cleaning, Suction Motor Repair & Duct Fitting)
 * 🧑‍🔧 **Electrician Services** (Household Wiring, Short Circuits, MCB Tripping & Switchboard Setup)
 * ♻️ **Old Appliances Buy & Sell** (Old ACs, Refrigerators & Washing Machines with Free Doorstep Pickup)
 

@@ -722,6 +722,10 @@ ul {
   transition: transform 0.5s ease;
 }
 
+#service-chimney .service-card-media img {
+  object-position: top center;
+}
+
 .service-card:hover .service-card-media img {
   transform: scale(1.08);
 }
@@ -2062,6 +2066,12 @@ textarea.form-control {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
+@media (min-width: 1025px) {
+  .services-grid .service-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 2.5rem;
@@ -2072,6 +2082,12 @@ textarea.form-control {
   .services-grid .service-card:nth-child(4),
   .services-grid .service-card:nth-child(5) {
     grid-column: auto;
+  }
+  .services-grid .service-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
   }
   .buy-sell-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2166,6 +2182,11 @@ textarea.form-control {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .services-grid .service-card:last-child:nth-child(odd) {
+    max-width: 100%;
+    margin: 0;
   }
 
   .buy-sell-grid {

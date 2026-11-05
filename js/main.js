@@ -371,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. Gallery Filter Tabs Controller
   const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+  const allGalleryCards = document.querySelectorAll('.gallery-card');
   if (filterButtons.length > 0) {
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -378,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         const filterVal = btn.getAttribute('data-filter');
 
-        galleryCards.forEach(card => {
+        allGalleryCards.forEach(card => {
           const cardCat = card.getAttribute('data-category') || 'all';
           if (filterVal === 'all' || cardCat.includes(filterVal)) {
             card.classList.remove('hide');
