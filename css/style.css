@@ -1548,6 +1548,19 @@ ul {
   color: var(--text-dark);
 }
 
+.contact-service-radius {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #f0f9ff;
+  border: 1px dashed #7dd3fc;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  line-height: 1.4;
+}
+
 .contact-item-content .map-link {
   display: inline-flex;
   align-items: center;
@@ -1705,14 +1718,22 @@ textarea.form-control {
 }
 
 .coverage-title {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--text-dark);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  flex-wrap: wrap;
+}
+
+.coverage-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.4;
 }
 
 .coverage-chips {
@@ -1725,11 +1746,25 @@ textarea.form-control {
 .coverage-chip {
   background: var(--bg-alt);
   color: var(--text-body);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.coverage-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.coverage-chip.coverage-chip-highlight {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-color: transparent;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
 }
 
 /* ==========================================================================
