@@ -1176,7 +1176,13 @@ ul {
   grid-row: span 2;
 }
 
-/* 3. Wide Panoramic Banner: spans all 4 cols */
+/* 3. Medium Horizontal Block: spans 2 cols, 1 row (250px high) */
+.collage-item-medium {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* 4. Wide Panoramic Banner: spans all 4 cols */
 .collage-item-wide {
   grid-column: span 4;
   grid-row: span 1;
@@ -1990,6 +1996,10 @@ textarea.form-control {
     grid-column: span 1;
     grid-row: span 1;
   }
+  .collage-item-medium {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
   .collage-item-wide {
     grid-column: span 2;
     grid-row: span 1;
@@ -2008,6 +2018,7 @@ textarea.form-control {
   .collage-item,
   .collage-item-large,
   .collage-item-tall,
+  .collage-item-medium,
   .collage-item-wide {
     grid-column: span 1;
     grid-row: auto;
