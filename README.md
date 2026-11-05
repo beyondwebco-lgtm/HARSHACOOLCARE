@@ -13,7 +13,7 @@ Official responsive static website for **HARSHACOOLCARE**, Khammam's trusted 24-
 
 ## 📍 Contact & Location
 * **Business Name**: HARSHACOOLCARE
-* **Location**: Khammam, Telangana, India
+* **Location / Address**: 101-08-20 Dhamsalapuram, Sriram Hills, Agraharam new colony, road no 05 Khammam, Telangana, 507003
 * **Working Hours**: 24 Hours Service Availability
 * **Helpline / Contact**: [7794080383](tel:7794080383)
 * **WhatsApp**: [Chat with us](https://wa.me/917794080383)
